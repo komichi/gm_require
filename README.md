@@ -1,11 +1,15 @@
 GM_require
 __________
 
-GM_require provides GM_require and GM_define functions for use within GreaseMonkey.
+GM_require provides GM_require and GM_define functions for use within
+GreaseMonkey; it is based loosely on: <https://github.com/dexgeh/gm-require>
+but completely rewritten to behave more like Require.JS (instead of CommonJS).
 
-You define modules using GM_define and include them using GM_require; configure using GM_require.config.
+You define modules using GM_define and include them using GM_require; configure
+using GM_require.config.
 
-First check out [RequireJS](http://requirejs.org/ "RequireJS"); the idea is precisely the same.  For example :
+First check out [RequireJS](http://requirejs.org/ "RequireJS"); the idea is
+precisely the same.  For example:
 
 File: scripts/structure1.js
 ```javascript
