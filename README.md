@@ -1,25 +1,49 @@
 GM_require
 __________
 
-GM_require provides GM_require, GM_define and GM_ functions for use within GreaseMonkey.
+GM_require provides GM_require and GM_define functions for use within GreaseMonkey.
 
 You define modules using GM_define and include them using GM_require; configure using GM_require.config.
 
-First check out [RequireJS](http://requirejs.org/ "RequireJS"); the idea is precisely the same.  For example:
+First check out [RequireJS](http://requirejs.org/ "RequireJS"); the idea is precisely the same.  For example :
 
-*File*: scripts/module3.js
+File: scripts/structure1.js
 
 ```javascript
 GM_define(
-  ['scripts/module1', 'scripts/module2'],
-  function(Module1, Module2) {
-    return function Module3() { 
-      // class which does something with Module1 and Module2
+  [],
+  function() {
+    return { color: "orange",
+             size: "large" };
     };
   });
 ```
 
-*File*: myscript.user.js
+File: scripts/structure2.js
+
+```javascript
+GM_define(
+  [],
+  function() {
+    return { color: "blue",
+             size: "small" };
+    };
+  });
+```
+
+File: scripts/module1.js
+
+```javascript
+GM_define(
+  ['scripts/structure1', 'scripts/structure2'],
+  function(structure1, structure2) {
+    return function() { 
+      // class which does something with structure1 and structure2
+    };
+  });
+```
+
+File: myscript.user.js
 
 ```javascript
 GM_require.config({
@@ -27,9 +51,9 @@ GM_require.config({
 });
 
 
-var Module3 = GM_require('scripts/module3');
+var Module1 = GM_require('scripts/module1');
 
-// now do something with Module3
+// now do something with Module1
 ```
 
 However, since you cannot access all DOM features while using GM_xmlHttpRequest
