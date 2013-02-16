@@ -8,7 +8,6 @@ You define modules using GM_define and include them using GM_require; configure 
 First check out [RequireJS](http://requirejs.org/ "RequireJS"); the idea is precisely the same.  For example :
 
 File: scripts/structure1.js
-
 ```javascript
 GM_define(
   [],
@@ -20,7 +19,6 @@ GM_define(
 ```
 
 File: scripts/structure2.js
-
 ```javascript
 GM_define(
   [],
@@ -32,7 +30,6 @@ GM_define(
 ```
 
 File: scripts/module1.js
-
 ```javascript
 GM_define(
   ['scripts/structure1', 'scripts/structure2'],
@@ -44,15 +41,11 @@ GM_define(
 ```
 
 File: myscript.user.js
-
 ```javascript
 GM_require.config({
   baseUrl: "http://my.site.com/directory/"
 });
-
-
 var Module1 = GM_require('scripts/module1');
-
 // now do something with Module1
 ```
 
